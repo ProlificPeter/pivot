@@ -1,0 +1,3 @@
+This is a rough attempt to throw together a small command line utility to support work with Pivotal Tracker.
+
+The intent is to be able to quickly create stories from the command line, and be able to set up templates for larger projects
