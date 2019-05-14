@@ -11,6 +11,7 @@
 		F52D84B2228B348900D260A9 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D84B1228B348900D260A9 /* ConsoleIO.swift */; };
 		F52D84B4228B361E00D260A9 /* Pivot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D84B3228B361E00D260A9 /* Pivot.swift */; };
 		F52D84B6228B47F300D260A9 /* CallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D84B5228B47F300D260A9 /* CallHandler.swift */; };
+		F52D84B9228B601A00D260A9 /* Addresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52D84B8228B601A00D260A9 /* Addresses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		F52D84B1228B348900D260A9 /* ConsoleIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
 		F52D84B3228B361E00D260A9 /* Pivot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pivot.swift; sourceTree = "<group>"; };
 		F52D84B5228B47F300D260A9 /* CallHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallHandler.swift; sourceTree = "<group>"; };
+		F52D84B8228B601A00D260A9 /* Addresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Addresses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +65,21 @@
 		F52D84A9228B240500D260A9 /* pivot */ = {
 			isa = PBXGroup;
 			children = (
+				F52D84B7228B5F5E00D260A9 /* Networking */,
 				F52D84AA228B240500D260A9 /* main.swift */,
 				F52D84B1228B348900D260A9 /* ConsoleIO.swift */,
 				F52D84B3228B361E00D260A9 /* Pivot.swift */,
-				F52D84B5228B47F300D260A9 /* CallHandler.swift */,
 			);
 			path = pivot;
+			sourceTree = "<group>";
+		};
+		F52D84B7228B5F5E00D260A9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F52D84B5228B47F300D260A9 /* CallHandler.swift */,
+				F52D84B8228B601A00D260A9 /* Addresses.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52D84B9228B601A00D260A9 /* Addresses.swift in Sources */,
 				F52D84AB228B240500D260A9 /* main.swift in Sources */,
 				F52D84B2228B348900D260A9 /* ConsoleIO.swift in Sources */,
 				F52D84B6228B47F300D260A9 /* CallHandler.swift in Sources */,

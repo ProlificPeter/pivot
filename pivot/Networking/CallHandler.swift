@@ -17,7 +17,7 @@ class CallHandler {
         let parameters = ["name": username, "password": password]
         
         //create the url with NSURL
-        let url = URL(string: "https://www.myserver.com/api/login")!
+        let url = URL(string: Addresses.BASE_URL + "projects")!
         
         //create the session object
         let session = URLSession.shared
