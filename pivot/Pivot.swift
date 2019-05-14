@@ -35,7 +35,7 @@ class Pivot {
         let argCount = CommandLine.argc
         //2
         let argument = CommandLine.arguments[1]
-        //3
+        //TODO: Update this to not use deprecated function
         let (option, value) = getOption(argument.substring(from: argument.index(argument.startIndex, offsetBy: 1)))
         //4
         consoleIO.writeMessage("Argument count: \(argCount) Option: \(option) value: \(value)")
