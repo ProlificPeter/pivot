@@ -83,13 +83,41 @@ class Pivot {
             consoleIO.writeMessage("Project Selected")
         case .configure:
             consoleIO.writeMessage("Configuration selected")
-            consoleIO.shell("")
+            configurationProcess()
         }
         
     }
     
     func getOption(_ option: String) -> (option:OptionType, value: String) {
         return (OptionType(value: option), option)
+    }
+ 
+    func configurationProcess() {
+        consoleIO.writeMessage("To configure Pivot, please enter your Tracker API Key")
+        let trackerKey = consoleIO.getInput()
+        
+        if trackerKey.count < 5 {
+            consoleIO.writeMessage("Tracker Key is invalid.")
+            configurationProcess()
+        }
+        else {
+            consoleIO.writeMessage("Updating Key...")
+            let directoryOutput = consoleIO.shell("mkdir -p ~/Library/Application\\ Support/com.rldimensions.pivot/")
+            if directoryOutput == 0 {
+                consoleIO.writeMessage("Writing unsuccessful. Make sure you have appropriate permissions while running.")
+            }
+            else {
+                
+            }
+            let fileOutput = (consoleIO.shell("echo \"key:\(trackerKey)\" >| ~/Library/Application\\ Support/com.rldimensions.pivot/config"))
+            if (fileOutput != 0) {
+                consoleIO.writeMessage("Writing unsuccessful with error \(fileOutput). Make sure you have appropriate permissions while running.")
+            }
+            else {
+                consoleIO.writeMessage("Configuration Successful")
+                
+            }
+        }
     }
     
 }

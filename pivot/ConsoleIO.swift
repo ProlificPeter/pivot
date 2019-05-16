@@ -53,7 +53,7 @@ class ConsoleIO {
         return strData.trimmingCharacters(in: CharacterSet.newlines)
     }
     
-    func shell(_ command: String) -> String {
+    func readShell(_ command: String) -> String {
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = ["-c", command]
@@ -68,7 +68,7 @@ class ConsoleIO {
         return output
     }
     
-    func readShell(_ command: String) -> Int32 {
+    func shell(_ command: String) -> Int32 {
         let task = Process()
         task.launchPath = "/usr/bin/env"
         task.arguments = ["-c", command]
