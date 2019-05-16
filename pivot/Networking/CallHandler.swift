@@ -11,13 +11,13 @@ import Foundation
 class CallHandler {
     
     
-    func postRequest(username: String, password: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    func postRequest(trackerToken: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         
         //declare parameter as a dictionary which contains string as key and value combination.
-        let parameters = ["name": username, "password": password]
+        //let parameters = ["TrackerToken": username, "password": password]
         
         //create the url with NSURL
-        let url = URL(string: Addresses.BASE_URL + "projects")!
+        let url = URL(string: Endpoints.PROJECTS)!
         
         //create the session object
         let session = URLSession.shared
@@ -26,12 +26,12 @@ class CallHandler {
         var request = URLRequest(url: url)
         request.httpMethod = "POST" //set http method as POST
         
-        do {
+        /*do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
         } catch let error {
             print(error.localizedDescription)
             completion(nil, error)
-        }
+        }*/
         
         //HTTP Headers
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

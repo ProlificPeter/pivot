@@ -12,6 +12,6 @@ enum Addresses {
     static let BASE_URL = "https://www.pivotaltracker.com/services/v5/"
 }
 
-enum Endpoint {
-    static let projects = "projects"
+enum Endpoints {
+    static let PROJECTS = "https://www.pivotaltracker.com/services/v5/projects"
 }
