@@ -14,6 +14,7 @@ enum OptionType: String {
     case product = "p"
     case help = "h"
     case project = "j"
+    case configure = "c"
     case unknown
     
     init(value: String) {
@@ -23,6 +24,7 @@ enum OptionType: String {
         case "p": self = .product
         case "h": self = .help
         case "j": self = .project
+        case "c": self = .configure
         default: self = .unknown
         }
     }
@@ -43,19 +45,6 @@ class Pivot {
         switch option {
         case .story:
             //2
-            if argCount != 4 {
-                if argCount > 4 {
-                    consoleIO.writeMessage("Too many arguments for option \(option.rawValue)", to: .error)
-                } else {
-                    consoleIO.writeMessage("Too few arguments for option \(option.rawValue)", to: .error)
-                }
-                consoleIO.printUsage()
-            } else {
-                //3
-                
-            }
-        case .epic:
-            //4
             if argCount != 3 {
                 if argCount > 3 {
                     consoleIO.writeMessage("Too many arguments for option \(option.rawValue)", to: .error)
@@ -64,7 +53,22 @@ class Pivot {
                 }
                 consoleIO.printUsage()
             } else {
+                //3
+                let storyTitle = CommandLine.arguments[2]
+                consoleIO.writeMessage("Story to Create: \(storyTitle)")
+            }
+        case .epic:
+            //4
+            if argCount != 2 {
+                if argCount > 2 {
+                    consoleIO.writeMessage("Too many arguments for option \(option.rawValue)", to: .error)
+                } else {
+                    consoleIO.writeMessage("Too few arguments for option \(option.rawValue)", to: .error)
+                }
+                consoleIO.printUsage()
+            } else {
                 //5
+                consoleIO.writeMessage("Epic Selected")
             }
         //6
         case .help:
@@ -74,9 +78,12 @@ class Pivot {
             consoleIO.writeMessage("Unknown option \(value)")
             consoleIO.printUsage()
         case .product:
-            <#code#>
+            consoleIO.writeMessage("Product Selected")
         case .project:
-            <#code#>
+            consoleIO.writeMessage("Project Selected")
+        case .configure:
+            consoleIO.writeMessage("Configuration selected")
+            consoleIO.shell("")
         }
         
     }
