@@ -34,8 +34,9 @@ class Pivot {
     
     let consoleIO = ConsoleIO()
     
+    
     func getToken() {
-        
+        consoleIO.readShell("cat ~/Library/Application\\ Support/com.rldimensions.pivot/config")
     }
     
     func staticMode() {
