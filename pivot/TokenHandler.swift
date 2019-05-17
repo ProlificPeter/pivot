@@ -25,7 +25,8 @@ class TokenHandler {
                 if keypair.count == 2 {
                     if keypair[0] == "key" {
                         token = String(keypair[1])
-                        consoleIO.writeMessage("Token value loaded as \(token)")
+                        //consoleIO.writeMessage("Token value loaded as \(token)")
+                        //debug output
                         break
                     }
                 }

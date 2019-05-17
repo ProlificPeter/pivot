@@ -15,6 +15,7 @@ enum OptionType: String {
     case help = "h"
     case project = "j"
     case configure = "c"
+    case key = "k"
     case unknown
     
     init(value: String) {
@@ -25,6 +26,7 @@ enum OptionType: String {
         case "h": self = .help
         case "j": self = .project
         case "c": self = .configure
+        case "k": self = .key
         default: self = .unknown
         }
     }
@@ -33,6 +35,13 @@ enum OptionType: String {
 class Pivot {
     
     let consoleIO = ConsoleIO()
+    let tokenHandler: TokenHandler
+    let tokenKey: TokenKey
+    
+    init() {
+        self.tokenHandler = TokenHandler(consoleIO: consoleIO)
+        self.tokenKey = TokenKey(key: tokenHandler.retrieveToken())
+    }
     
     
     func staticMode() {
@@ -85,6 +94,9 @@ class Pivot {
         case .configure:
             consoleIO.writeMessage("Configuration selected")
             configurationProcess()
+        case .key:
+            consoleIO.writeMessage("Key Selected")
+            keyDump()
         }
         
     }
@@ -94,7 +106,11 @@ class Pivot {
     }
  
     func configurationProcess() {
-        
+        tokenHandler.configurationMode()
+    }
+    
+    func keyDump() {
+        consoleIO.writeMessage("Key: \(tokenKey.getTokenKey())")
     }
     
 }

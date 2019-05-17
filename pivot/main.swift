@@ -9,7 +9,6 @@
 import Foundation
 
 let pivot = Pivot()
-let token = TokenKey(key: pivot.getToken())
 if CommandLine.argc < 2 {
     //TODO: Handle interactive mode
 } else {
