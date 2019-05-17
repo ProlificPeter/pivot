@@ -34,9 +34,35 @@ class Pivot {
     
     let consoleIO = ConsoleIO()
     
-    
-    func getToken() {
-        consoleIO.readShell("cat ~/Library/Application\\ Support/com.rldimensions.pivot/config")
+    func getToken() -> String {
+        let file = consoleIO.readShell("cat ~/Library/Application\\ Support/com.rldimensions.pivot/config")
+        var token: String?
+        if file != "" {
+            let readfile = file.split(separator: "\n")
+            for line in readfile {
+                let keypair = line.split(separator: ":")
+                if keypair.count == 2 {
+                    if keypair[0] == "key" {
+                        token = String(keypair[1])
+                        consoleIO.writeMessage("Token value loaded as \(token)")
+                        break
+                    }
+                }
+            }
+        }
+        else
+        {
+            //TODO: go to Error
+            return "empty"
+        }
+        if token != nil {
+            return token!
+        }
+        else {
+            //add a damned error function
+            return "empty"
+        }
+        
     }
     
     func staticMode() {
