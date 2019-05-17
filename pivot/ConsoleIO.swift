@@ -55,7 +55,7 @@ class ConsoleIO {
     
     func readShell(_ command: String) -> String {
         let task = Process()
-        task.launchPath = "/usr/bin/env"
+        task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
         
         let pipe = Pipe()
@@ -70,7 +70,7 @@ class ConsoleIO {
     
     func shell(_ command: String) -> Int32 {
         let task = Process()
-        task.launchPath = "/usr/bin/env"
+        task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
         task.launch()
         task.waitUntilExit()

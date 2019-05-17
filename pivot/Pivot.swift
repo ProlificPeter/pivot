@@ -34,6 +34,10 @@ class Pivot {
     
     let consoleIO = ConsoleIO()
     
+    func getToken() {
+        
+    }
+    
     func staticMode() {
         //1
         let argCount = CommandLine.argc
@@ -103,11 +107,11 @@ class Pivot {
         else {
             consoleIO.writeMessage("Updating Key...")
             let directoryOutput = consoleIO.shell("mkdir -p ~/Library/Application\\ Support/com.rldimensions.pivot/")
-            if directoryOutput == 0 {
-                consoleIO.writeMessage("Writing unsuccessful. Make sure you have appropriate permissions while running.")
+            if directoryOutput != 1 {
+                consoleIO.writeMessage("Writing unsuccessful with error \(directoryOutput). Make sure you have appropriate permissions while running.")
             }
             else {
-                
+                consoleIO.writeMessage("Folder structure in place.")
             }
             let fileOutput = (consoleIO.shell("echo \"key:\(trackerKey)\" >| ~/Library/Application\\ Support/com.rldimensions.pivot/config"))
             if (fileOutput != 0) {
@@ -119,5 +123,7 @@ class Pivot {
             }
         }
     }
+    
+    
     
 }
